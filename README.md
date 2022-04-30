@@ -1,1 +1,1 @@
-# Quintrix-GroupProject
+# Quintrix-Wind
