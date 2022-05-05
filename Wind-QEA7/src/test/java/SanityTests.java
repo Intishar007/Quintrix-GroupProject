@@ -1,20 +1,41 @@
 import static org.testng.Assert.assertFalse;
-
-import java.net.URL;
-
+import java.io.File;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 public class SanityTests {
+
+	WebDriver driver;
+	String URL = "http://invenauto.tech/";
+	
   @Test
   public void canLaunchWebdriver() {
-	  URL driverPath = getClass().getResource("chromedriver.exe");
-	  System.setProperty("webdriver.chrome.driver",driverPath.getPath());
 	  
-	  WebDriver driver = new ChromeDriver();
+	  String osName = System.getProperty("os.name").toLowerCase();
+	  String path = "";
+	  
+	  if(osName.equals("mac os")) {
+		  path ="src\\test\\resources\\chromedriver";  
+	  }else if(osName.endsWith("windows 11")) {
+		  path ="src\\test\\resources\\chromedriver.exe"; 
+	  }
+	  
+	  File file = new File(path);
+	  String absolutePath = file.getAbsolutePath();
+	  System.setProperty("webdriver.chrome.driver", absolutePath);
+	  driver = new ChromeDriver();
+	  driver.get(URL);
 	  
 	  assertFalse(driver == null,  "the webdriver should be initialized");
 	  
   }
+  
+	@AfterMethod
+	public void quit() {
+		if (driver != null) {
+			driver.quit();
+		}
+	}
 }

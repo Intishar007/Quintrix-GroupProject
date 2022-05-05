@@ -12,14 +12,14 @@ import org.testng.annotations.Test;
 public class TC001Automation {
 
 	WebDriver driver;
-	String URl = "http://invenauto.tech/";
+	String URL = "http://invenauto.tech/";
 
 	@BeforeMethod
 	public void setup() {
 		URL driverPath = getClass().getResource("chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", driverPath.getPath());
 		driver = new ChromeDriver();
-		driver.navigate().to(URl);
+		driver.navigate().to(URL);
 		driver.manage().window().maximize();
 	}
 
