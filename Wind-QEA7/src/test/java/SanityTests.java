@@ -16,9 +16,9 @@ public class SanityTests {
 	  String osName = System.getProperty("os.name").toLowerCase();
 	  String path = "";
 	  
-	  if(osName.equals("mac os")) {
+	  if(osName.contains("mac")) {
 		  path ="src\\test\\resources\\chromedriver";  
-	  }else if(osName.endsWith("windows 11")) {
+	  }else if(osName.contains("windows")) {
 		  path ="src\\test\\resources\\chromedriver.exe"; 
 	  }
 	  
