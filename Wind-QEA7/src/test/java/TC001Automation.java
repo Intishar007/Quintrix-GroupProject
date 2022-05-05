@@ -42,7 +42,7 @@ public class TC001Automation {
 
 		String actualUrl="http://invenauto.tech/index.php?controller=my-account";
 		String expectedUrl= driver.getCurrentUrl();
-		Assert.assertEquals(expectedUrl,actualUrl);
+		Assert.assertEquals(expectedUrl,actualUrl,"User Doesn't Exist||Invalid Credentials!");
 	}
 
 	@AfterMethod
