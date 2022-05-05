@@ -18,7 +18,7 @@ public class TC017Automation {
 		String path = "";
 
 		if(osName.contains("mac")) {
-			path ="src\\test\\resources\\chromedriver";  
+			path ="src/test/resources/chromedriver";  
 		}else if(osName.contains("windows")) {
 			path ="src\\test\\resources\\chromedriver.exe"; 
 		}
