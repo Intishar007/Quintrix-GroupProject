@@ -1,5 +1,7 @@
 import static org.testng.Assert.assertEquals;
 import java.io.File;
+
+import org.apache.commons.exec.util.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,14 +36,14 @@ public class TC009Automation {
 	@Test
 	public void newUserRegistration() throws InterruptedException {
 
-		String text = "Your account has been created.";
+		String expectedMessage = "Your account has been created.";
 
 		WebElement signinbtn = this.driver.findElement(By.xpath("//a[@class='login']"));
 		signinbtn.click();
 		Thread.sleep(1000);
 
 		WebElement emailIdtextbox = this.driver.findElement(By.id("email_create"));
-		emailIdtextbox.sendKeys("user2468@gmail.com");
+		emailIdtextbox.sendKeys("user246821@gmail.com");
 		Thread.sleep(1000);
 
 		WebElement accountbtn = this.driver.findElement(By.name("SubmitCreate"));
@@ -84,7 +86,7 @@ public class TC009Automation {
 		String alertMessage = message.getText();
 
 		String actualMessage = alertMessage;
-		assertEquals(actualMessage, text, "Your account has been created.");
+		assertEquals(actualMessage, expectedMessage);
 	}
 
 	@AfterMethod
