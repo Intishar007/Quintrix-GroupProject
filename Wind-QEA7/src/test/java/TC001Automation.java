@@ -1,5 +1,4 @@
-import java.net.URL;
-
+import java.io.File;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,12 +14,21 @@ public class TC001Automation {
 	String URL = "http://invenauto.tech/";
 
 	@BeforeMethod
-	public void setup() {
-		URL driverPath = getClass().getResource("chromedriver.exe");
-		System.setProperty("webdriver.chrome.driver", driverPath.getPath());
+	public void setupDriver() {
+		String osName = System.getProperty("os.name").toLowerCase();
+		String path = "";
+
+		if(osName.contains("mac")) {
+			path ="src\\test\\resources\\chromedriver";  
+		}else if(osName.contains("windows")) {
+			path ="src\\test\\resources\\chromedriver.exe"; 
+		}
+
+		File file = new File(path);
+		String absolutePath = file.getAbsolutePath();
+		System.setProperty("webdriver.chrome.driver", absolutePath);
 		driver = new ChromeDriver();
-		driver.navigate().to(URL);
-		driver.manage().window().maximize();
+		driver.get(URL);
 	}
 
 	@Test
