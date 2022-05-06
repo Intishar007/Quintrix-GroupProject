@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SearchTest extends SeleniumTestBase{
-
 	@Test
 	public void tc017_cansearchwithspecialkeyword() throws InterruptedException {
 		WebElement search=this.getDriver().findElement(By.id("search_query_top"));
@@ -18,6 +17,4 @@ public class SearchTest extends SeleniumTestBase{
 		String expectedUrl= this.getDriver().getCurrentUrl();
 		Assert.assertEquals(expectedUrl,actualUrl);
 	}
-
-	
 }
