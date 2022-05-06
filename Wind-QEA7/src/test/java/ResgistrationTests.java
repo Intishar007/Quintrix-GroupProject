@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class ResgistrationTests extends SeleniumTestBase {
 
 	@Test
-	public void tc009_CanResgisterAnAccount() throws InterruptedException {
+	public void tc009_CanResgisterNewAccount() throws InterruptedException {
 
 		String expectedMessage = "Your account has been created.";
 
