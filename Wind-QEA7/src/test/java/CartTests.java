@@ -10,7 +10,10 @@ public class CartTests extends SeleniumTestBase {
 		WebElement specialbutton = this.getDriver().findElement(By.className("blockspecials"));
 		specialbutton.click();
 		Thread.sleep(5000); 
-		WebElement addtocart = this.getDriver().findElement(By.xpath("//span[text()='Add to cart']"));
+		WebElement quickview = this.getDriver().findElement(By.className("quick-view"));
+		quickview.click();
+		Thread.sleep(5000);
+		WebElement addtocart = this.getDriver().findElement(By.id("add_to_cart"));
 		addtocart.click();
 		Thread.sleep(5000); 
 
