@@ -23,13 +23,17 @@ public abstract class SeleniumTestBase {
 		String absolutePath = file.getAbsolutePath();
 		System.setProperty("webdriver.chrome.driver", absolutePath);
 		this.driver = new ChromeDriver();
-		this.driver.get(URL);
+		this.getDriver().get(URL);
 	}
 	
 	@AfterMethod
 	public void quit() {
-		if (this.driver != null) {
-			this.driver.quit();
+		if (this.getDriver() != null) {
+			this.getDriver().quit();
 		}
+	}
+
+	protected ChromeDriver getDriver() {
+		return driver;
 	}
 }
