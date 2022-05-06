@@ -29,6 +29,7 @@ public class TC001Automation {
 		System.setProperty("webdriver.chrome.driver", absolutePath);
 		driver = new ChromeDriver();
 		driver.get(URL);
+		driver.manage().window().maximize();
 	}
 
 	@Test

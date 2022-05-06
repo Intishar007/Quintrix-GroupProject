@@ -32,6 +32,7 @@ public class TC009Automation {
 		System.setProperty("webdriver.chrome.driver", absolutePath);
 		driver = new ChromeDriver();
 		driver.get(URL);
+		driver.manage().window().maximize();
 	}
 	@Test
 	public void newUserRegistration() throws InterruptedException {
