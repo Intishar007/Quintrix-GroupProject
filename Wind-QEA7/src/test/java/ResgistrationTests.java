@@ -16,7 +16,7 @@ public class ResgistrationTests extends SeleniumTestBase {
 		Thread.sleep(1000);
 
 		WebElement emailIdtextbox = this.getDriver().findElement(By.id("email_create"));
-		emailIdtextbox.sendKeys("user2468212@gmail.com");
+		emailIdtextbox.sendKeys("user24682121@gmail.com");
 		Thread.sleep(1000);
 
 		WebElement accountbtn = this.getDriver().findElement(By.name("SubmitCreate"));
