@@ -1,5 +1,4 @@
 import java.io.File;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -25,7 +24,7 @@ public abstract class SeleniumTestBase {
 		this.driver = new ChromeDriver();
 		this.getDriver().get(URL);
 	}
-	
+
 	@AfterMethod
 	public void quit() {
 		if (this.getDriver() != null) {

@@ -20,7 +20,7 @@ public class LoginTests extends SeleniumTestBase{
 		password.sendKeys("123456");
 		login.click();
 		Thread.sleep(2000);
-		
+
 		String actualUrl="http://invenauto.tech/index.php?controller=my-account";
 		String expectedUrl= this.getDriver().getCurrentUrl();
 		Assert.assertEquals(expectedUrl,actualUrl,"User Doesn't Exist||Invalid Credentials!");

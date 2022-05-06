@@ -11,7 +11,7 @@ public class SearchProductsTests extends SeleniumTestBase{
 
 		search.sendKeys("Dresses");
 		submit.click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		String actualUrl ="http://invenauto.tech/index.php?controller=search&orderby=position&orderway=desc&search_query=Dresses&submit_search=";
 		String expectedUrl= this.getDriver().getCurrentUrl();
