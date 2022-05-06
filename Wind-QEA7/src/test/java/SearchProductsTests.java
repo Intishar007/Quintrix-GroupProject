@@ -3,9 +3,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SearchTest extends SeleniumTestBase{
+public class SearchProductsTests extends SeleniumTestBase{
 	@Test
-	public void tc017_cansearchwithspecialkeyword() throws InterruptedException {
+	public void tc017_CanSearchWithSpecialKeyword() throws InterruptedException {
 		WebElement search=this.getDriver().findElement(By.id("search_query_top"));
 		WebElement submit=this.getDriver().findElement(By.name("submit_search"));
 
