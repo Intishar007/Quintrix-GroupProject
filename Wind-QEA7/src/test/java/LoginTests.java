@@ -1,31 +1,24 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import foundation.SeleniumTestBase;
+import pageobject.LoginPage;
 
 public class LoginTests extends SeleniumTestBase{
 
 	@Test
 	public void tc001_CanLoginWithValidCredentials() throws InterruptedException {
-
+		String email = "user123@gmail.com";
+		String password = "123456";
+		String accounturl="http://invenauto.tech/index.php?controller=my-account";
 		
+		String loginurl = new LoginPage(this.getDriver())
+				.navigate()
+				.clickSigninButton()
+				.enterEmail(email)
+				.enterPassword(password)
+				.clickLoginButton()
+				.getCurrentUrl();
 		
-		WebElement signinbtn = getDriver().findElement(By.xpath("//a[@class='login']"));
-		signinbtn.click();
-
-		WebElement username=getDriver().findElement(By.id("email"));
-		WebElement password=getDriver().findElement(By.id("passwd"));
-		WebElement login=getDriver().findElement(By.id("SubmitLogin"));
-
-		username.sendKeys("user123@gmail.com");
-		password.sendKeys("123456");
-		login.click();
-		Thread.sleep(2000);
-
-		String actualUrl="http://invenauto.tech/index.php?controller=my-account";
-		String expectedUrl= this.getDriver().getCurrentUrl();
-		Assert.assertEquals(expectedUrl,actualUrl,"User Doesn't Exist||Invalid Credentials!");
+		Assert.assertEquals(loginurl,accounturl,"User Doesn't Exist||Invalid Credentials!");
 	}
 }
