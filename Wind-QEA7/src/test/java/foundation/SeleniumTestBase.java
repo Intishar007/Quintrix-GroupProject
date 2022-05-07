@@ -1,11 +1,14 @@
+package foundation;
+
 import java.io.File;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public abstract class SeleniumTestBase {
-	private String URL = "http://invenauto.tech/";
-	private ChromeDriver driver;
+	private WebDriver driver;
 
 	@BeforeMethod
 	public void setup() {
@@ -22,7 +25,13 @@ public abstract class SeleniumTestBase {
 		String absolutePath = file.getAbsolutePath();
 		System.setProperty("webdriver.chrome.driver", absolutePath);
 		this.driver = new ChromeDriver();
-		this.getDriver().get(URL);
+
+		SetOptions();
+	}
+
+	private void SetOptions() {
+		this.driver.manage().window().maximize();
+		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	@AfterMethod
@@ -32,7 +41,7 @@ public abstract class SeleniumTestBase {
 		}
 	}
 
-	protected ChromeDriver getDriver() {
-		return driver;
+	protected WebDriver getDriver() {
+		return this.driver;
 	}
 }

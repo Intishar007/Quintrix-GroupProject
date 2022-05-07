@@ -3,20 +3,27 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import foundation.Helpers;
+import foundation.SeleniumTestBase;
+import pageobject.HomePage;
 
 public class ResgistrationTests extends SeleniumTestBase {
 
 	@Test
 	public void tc009_CanResgisterNewAccount() throws InterruptedException {
 
+		String username = Helpers.generateEmailAddress();
 		String expectedMessage = "Your account has been created.";
+
+		new HomePage(this.getDriver())
+		.navigate();
 
 		WebElement signinbtn = this.getDriver().findElement(By.xpath("//a[@class='login']"));
 		signinbtn.click();
 		Thread.sleep(2000);
 
 		WebElement emailIdtextbox = this.getDriver().findElement(By.id("email_create"));
-		emailIdtextbox.sendKeys("user24682121@gmail.com");
+		emailIdtextbox.sendKeys(username);
 		Thread.sleep(2000);
 
 		WebElement accountbtn = this.getDriver().findElement(By.name("SubmitCreate"));

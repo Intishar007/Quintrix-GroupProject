@@ -3,14 +3,17 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import foundation.SeleniumTestBase;
+
 public class LoginTests extends SeleniumTestBase{
 
 	@Test
 	public void tc001_CanLoginWithValidCredentials() throws InterruptedException {
 
+		
+		
 		WebElement signinbtn = getDriver().findElement(By.xpath("//a[@class='login']"));
 		signinbtn.click();
-		Thread.sleep(2000);
 
 		WebElement username=getDriver().findElement(By.id("email"));
 		WebElement password=getDriver().findElement(By.id("passwd"));
