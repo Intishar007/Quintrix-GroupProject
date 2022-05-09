@@ -30,4 +30,10 @@ public class HomePage extends PageObjectBase{
 
 		return new SearchPage(this.getDriver());		
 	}
+	
+	public LoginPage clickSignInButton() {
+		WebElement signinbutton = this.getDriver().findElement(By.xpath("//a[@class='login']"));
+		signinbutton.click();
+		return new LoginPage(this.getDriver());
+	}
 }

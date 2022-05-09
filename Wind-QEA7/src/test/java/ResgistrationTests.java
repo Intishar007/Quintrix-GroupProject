@@ -1,7 +1,4 @@
 import static org.testng.Assert.assertEquals;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import foundation.Helpers;
 import foundation.SeleniumTestBase;
@@ -13,59 +10,28 @@ public class ResgistrationTests extends SeleniumTestBase {
 	public void tc009_CanResgisterNewAccount() throws InterruptedException {
 
 		String username = Helpers.generateEmailAddress();
+		String first_name = "Saman";
+		String last_name = "Shrestha";
+		String password = "1234567";
 		String expectedMessage = "Your account has been created.";
 
-		new HomePage(this.getDriver())
-		.navigate();
+		String actualMessage = new HomePage(this.getDriver())
+				.navigate()
+				.clickSignInButton()
+				.enterEmail(username)
+				.enterNewEmail(username)
+				.clickCreateAnAccount()
+				.selectTitleRadioButton()
+				.enterFirstName(first_name)
+				.enterLastName(last_name)
+				.enteraccountPassword(password)
+				.selectDay()
+				.selectMonth()
+				.selectYear()
+				.clickRegister()
+				.getTextMessage();
 
-		WebElement signinbtn = this.getDriver().findElement(By.xpath("//a[@class='login']"));
-		signinbtn.click();
-		Thread.sleep(2000);
 
-		WebElement emailIdtextbox = this.getDriver().findElement(By.id("email_create"));
-		emailIdtextbox.sendKeys(username);
-		Thread.sleep(2000);
-
-		WebElement accountbtn = this.getDriver().findElement(By.name("SubmitCreate"));
-		accountbtn.click();
-		Thread.sleep(2000);
-
-		WebElement radiobtn = this.getDriver().findElement(By.id("id_gender1"));
-		radiobtn.click();
-		Thread.sleep(2000);
-
-		WebElement enterfirstname = this.getDriver().findElement(By.id("customer_firstname"));
-		enterfirstname.sendKeys("Sam");
-		Thread.sleep(2000);
-
-		WebElement enterlastname = this.getDriver().findElement(By.id("customer_lastname"));
-		enterlastname.sendKeys("Shah");
-		Thread.sleep(2000);
-		WebElement psswrd = this.getDriver().findElement(By.id("passwd"));
-		psswrd.sendKeys("1234567");
-		Thread.sleep(2000);
-
-		WebElement daydropdown = this.getDriver().findElement(By.id("days"));
-		Select day = new Select(daydropdown);
-		day.selectByValue("10");
-		Thread.sleep(2000);
-
-		WebElement selectmonth = this.getDriver().findElement(By.xpath("//select[@id='months']/option[13]"));
-		selectmonth.click();
-		Thread.sleep(2000);
-
-		WebElement selectyear = this.getDriver().findElement(By.xpath("//select[@id='years']/option[35]"));
-		selectyear.click();
-		Thread.sleep(2000);
-
-		WebElement submitacc = this.getDriver().findElement(By.id("submitAccount"));
-		submitacc.click();
-		Thread.sleep(2000);
-
-		WebElement message = this.getDriver().findElement(By.xpath("//p[@class = 'alert alert-success']"));
-		String alertMessage = message.getText();
-
-		String actualMessage = alertMessage;
-		assertEquals(actualMessage, expectedMessage);
+		assertEquals(actualMessage, expectedMessage, "actual message should match the expected Message.");
 	}
 }
