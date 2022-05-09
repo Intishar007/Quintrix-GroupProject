@@ -14,6 +14,7 @@ public class SearchProductsTests extends SeleniumTestBase{
 				.enterSearchDetails(product)
 				.clickSearchButton()
 				.getCurrentUrl();
+		
 
 		Assert.assertEquals(url,producturl,"Search result should be displaying dresses");
 	}
