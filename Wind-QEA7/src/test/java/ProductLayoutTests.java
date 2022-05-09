@@ -16,6 +16,6 @@ public class ProductLayoutTests  extends SeleniumTestBase {
 				.ClickListViewButton()
 				.getCurrentUrl();
 
-		Assert.assertEquals(url,actualUrl);
+		Assert.assertEquals(url,actualUrl,"Products should be displayed in a list view.");
 	}
 }

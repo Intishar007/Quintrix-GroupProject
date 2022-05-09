@@ -19,6 +19,6 @@ public class LoginTests extends SeleniumTestBase{
 				.clickLoginButton()
 				.getCurrentUrl();
 		
-		Assert.assertEquals(loginurl,accounturl,"User Doesn't Exist||Invalid Credentials!");
+		Assert.assertEquals(loginurl,accounturl,"User should be able to login.");
 	}
 }
