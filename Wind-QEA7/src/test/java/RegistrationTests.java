@@ -4,7 +4,7 @@ import foundation.Helpers;
 import foundation.SeleniumTestBase;
 import pageobject.HomePage;
 
-public class ResgistrationTests extends SeleniumTestBase {
+public class RegistrationTests extends SeleniumTestBase {
 
 	@Test
 	public void tc009_CanResgisterNewAccount() throws InterruptedException {
@@ -31,7 +31,6 @@ public class ResgistrationTests extends SeleniumTestBase {
 				.clickRegister()
 				.getTextMessage();
 
-
-		assertEquals(actualMessage, expectedMessage, "actual message should match the expected Message.");
+		assertEquals(actualMessage, expectedMessage, "User should recieve an confirmation message of the acount created.");
 	}
 }

@@ -29,7 +29,6 @@ public class SanityTests {
 		driver.get(URL);
 
 		assertFalse(driver == null,  "the webdriver should be initialized");
-
 	}
 
 	@AfterMethod

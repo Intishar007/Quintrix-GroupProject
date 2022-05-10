@@ -18,7 +18,7 @@ public class LoginTests extends SeleniumTestBase{
 				.enterPassword(password)
 				.clickLoginButton()
 				.getCurrentUrl();
-		
+		 
 		Assert.assertEquals(loginurl,accounturl,"User should be able to login.");
 	}
 }

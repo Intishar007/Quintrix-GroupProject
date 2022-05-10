@@ -50,53 +50,70 @@ public class LoginPage extends PageObjectBase{
 	public LoginPage enterNewEmail(String username) {
 		WebElement emailIdtextbox = this.getDriver().findElement(By.id("email_create"));
 		emailIdtextbox.sendKeys(username);
+		
 		return this; 
 	}	
+	
 	public LoginPage clickCreateAnAccount() {
 		WebElement accountbtn = this.getDriver().findElement(By.name("SubmitCreate"));
 		accountbtn.click();
+		
 		return this;
 	}
 	
 	public LoginPage selectTitleRadioButton() {
 		WebElement radiobtn = this.getDriver().findElement(By.id("id_gender1"));
 		radiobtn.click();
+		
 		return this;
 	}
+	
 	public LoginPage enterFirstName(String first_name) {
 		WebElement firstname = this.getDriver().findElement(By.id("customer_firstname"));
 		firstname.sendKeys(first_name);
+	
 		return this;
 	}
+	
 	public LoginPage enterLastName(String last_name) {
 		WebElement lastname = this.getDriver().findElement(By.id("customer_lastname"));
 		lastname.sendKeys(last_name);
+	
 		return this;
 	}
+	
 	public LoginPage enteraccountPassword(String password) {
 		WebElement psswrd = this.getDriver().findElement(By.id("passwd"));
 		psswrd.sendKeys(password);
+	
 		return this;
 	}
+	
 	public LoginPage selectDay() {
 		WebElement day = this.getDriver().findElement(By.xpath("//select[@id='days']/option[16]"));
 		day.click();
+	
 		return this;
 	}
+	
 	public LoginPage selectMonth() {
 		WebElement month = this.getDriver().findElement(By.xpath("//select[@id='months']/option[13]"));
 		month.click();
+	
 		return this;
 	}
+	
 	public LoginPage selectYear() {
 		WebElement year = this.getDriver().findElement(By.xpath("//select[@id='years']/option[35]"));
 		year.click();
+	
 		return this;
 	}
+	
 	public MyAccountPage clickRegister() {
 		WebElement submitacc = this.getDriver().findElement(By.id("submitAccount"));
 		submitacc.click();
+	
 		return new MyAccountPage(this.getDriver());
 	}
 }
-
